@@ -26,7 +26,8 @@ def main() -> None:
     print(f"Modality    : {event.modality}")
     print(f"Time        : {event.timestamp.isoformat()}")
     print(f"Image shape : {result.image.shape}")
-    print(f"Prediction  : {result.prediction}")
+    print(f"Label       : {result.prediction.label}")
+    print(f"Confidence  : {result.prediction.confidence:.2f}")
 
 
 if __name__ == "__main__":
