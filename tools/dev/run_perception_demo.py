@@ -1,3 +1,4 @@
+from civiclens_perception.mock_vision_model import MockVisionModel
 from civiclens_perception.pipeline import PerceptionPipeline
 from civiclens_perception.preprocessing import VisionPreprocessor
 from civiclens_perception.processor import PerceptionProcessor
@@ -13,6 +14,7 @@ def main() -> None:
         ),
         processor=PerceptionProcessor(),
         preprocessor=VisionPreprocessor(),
+        model=MockVisionModel(),
     )
 
     result = pipeline.run_once()
@@ -24,6 +26,7 @@ def main() -> None:
     print(f"Modality    : {event.modality}")
     print(f"Time        : {event.timestamp.isoformat()}")
     print(f"Image shape : {result.image.shape}")
+    print(f"Prediction  : {result.prediction}")
 
 
 if __name__ == "__main__":
