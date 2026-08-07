@@ -1,0 +1,86 @@
+# CivicLens AI — Git Ignore Rules
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# ML / Models / Experiments
+checkpoints/
+artifacts/
+runs/
+wandb/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Large / Generated Dataset Content
+ml/datasets/raw/
+ml/datasets/processed/
+ml/datasets/cache/
+
+# Node / Frontend
+node_modules/
+.next/
+dist/
+build/
+coverage/
+
+# ROS 2
+robotics/ros2/build/
+robotics/ros2/install/
+robotics/ros2/log/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform.lock.hcl
+
+# Temporary / Cache
+tmp/
+temp/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python Packaging
+*.egg-info/
+.eggs/
+wheels/
