@@ -11,3 +11,4 @@ class PerceptionResult:
 
     event: PerceptionEvent
     image: np.ndarray
+    prediction: dict[str, object]
