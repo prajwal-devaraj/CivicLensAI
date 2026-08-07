@@ -24,6 +24,8 @@ def test_opencv_capture_returns_camera_frame(mock_video_capture):
     assert frame.source_id == "front-camera"
     assert frame.width == 640
     assert frame.height == 480
+    assert frame.image is not None
+    assert frame.image.shape == (480, 640, 3)
 
     camera.close()
     mock_camera.release.assert_called_once()

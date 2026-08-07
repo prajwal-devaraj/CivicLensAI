@@ -35,6 +35,7 @@ class OpenCVCameraCapture:
             source_id=self.source_id,
             width=width,
             height=height,
+            image=image,
         )
 
     def close(self) -> None:
