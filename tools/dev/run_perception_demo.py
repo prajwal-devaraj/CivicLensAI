@@ -1,6 +1,6 @@
-from services.perception.src.civiclens_perception.pipeline import PerceptionPipeline
-from services.perception.src.civiclens_perception.processor import PerceptionProcessor
-from services.perception.src.civiclens_perception.synthetic_capture import SyntheticFrameCapture
+from civiclens_perception.pipeline import PerceptionPipeline
+from civiclens_perception.processor import PerceptionProcessor
+from civiclens_perception.synthetic_capture import SyntheticFrameCapture
 
 
 def main() -> None:

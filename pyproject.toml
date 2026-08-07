@@ -18,5 +18,6 @@ target-version = "py311"
 testpaths = ["tests"]
 pythonpath = ["."]
 
-[tool.setuptools]
-packages = []
+[tool.setuptools.packages.find]
+where = ["services/perception/src"]
+include = ["civiclens_perception*"]
