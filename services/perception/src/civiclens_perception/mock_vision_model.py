@@ -1,5 +1,7 @@
 import numpy as np
 
+from .bounding_box import BoundingBox
+from .detection import ObjectDetection
 from .prediction import VisionPrediction
 
 
@@ -8,6 +10,16 @@ class MockVisionModel:
 
     def infer(self, image: np.ndarray) -> VisionPrediction:
         return VisionPrediction(
-            label="synthetic-scene",
-            confidence=1.0,
+            detections=(
+                ObjectDetection(
+                    label="person",
+                    confidence=0.99,
+                    bounding_box=BoundingBox(
+                        x_min=100,
+                        y_min=80,
+                        x_max=300,
+                        y_max=500,
+                    ),
+                ),
+            )
         )

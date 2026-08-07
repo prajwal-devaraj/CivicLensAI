@@ -22,5 +22,6 @@ def test_perception_pipeline_runs_end_to_end():
     assert result.event.source == "front-camera"
     assert result.event.modality == "vision"
     assert result.image.shape == (640, 640, 3)
-    assert result.prediction.label == "synthetic-scene"
-    assert result.prediction.confidence == 1.0
+    assert result.prediction.count == 1
+    assert result.prediction.detections[0].label == "person"
+    assert result.prediction.detections[0].confidence == 0.99

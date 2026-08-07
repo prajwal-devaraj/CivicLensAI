@@ -26,8 +26,15 @@ def main() -> None:
     print(f"Modality    : {event.modality}")
     print(f"Time        : {event.timestamp.isoformat()}")
     print(f"Image shape : {result.image.shape}")
-    print(f"Label       : {result.prediction.label}")
-    print(f"Confidence  : {result.prediction.confidence:.2f}")
+    print(f"Detections  : {result.prediction.count}")
+
+    for detection in result.prediction.detections:
+        box = detection.bounding_box
+        print(
+            f"- {detection.label} "
+            f"({detection.confidence:.2f}) "
+            f"[{box.x_min}, {box.y_min}, {box.x_max}, {box.y_max}]"
+        )
 
 
 if __name__ == "__main__":
