@@ -1,18 +1,22 @@
-from services.perception.src.civiclens_perception.pipeline import PerceptionPipeline
-from services.perception.src.civiclens_perception.processor import PerceptionProcessor
-from services.perception.src.civiclens_perception.synthetic_capture import SyntheticFrameCapture
+from civiclens_perception.pipeline import PerceptionPipeline
+from civiclens_perception.preprocessing import VisionPreprocessor
+from civiclens_perception.processor import PerceptionProcessor
+from civiclens_perception.synthetic_capture import SyntheticFrameCapture
 
 
 def test_perception_pipeline_runs_end_to_end():
-    capture = SyntheticFrameCapture(
-        source_id="front-camera",
-        width=640,
-        height=480,
+    pipeline = PerceptionPipeline(
+        capture=SyntheticFrameCapture(
+            source_id="front-camera",
+            width=640,
+            height=480,
+        ),
+        processor=PerceptionProcessor(),
+        preprocessor=VisionPreprocessor(),
     )
-    processor = PerceptionProcessor()
-    pipeline = PerceptionPipeline(capture=capture, processor=processor)
 
-    event = pipeline.run_once()
+    result = pipeline.run_once()
 
-    assert event.source == "front-camera"
-    assert event.modality == "vision"
+    assert result.event.source == "front-camera"
+    assert result.event.modality == "vision"
+    assert result.image.shape == (640, 640, 3)

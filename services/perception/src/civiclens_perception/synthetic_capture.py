@@ -1,3 +1,5 @@
+import numpy as np
+
 from .frame import CameraFrame
 
 
@@ -15,8 +17,14 @@ class SyntheticFrameCapture:
         self.height = height
 
     def capture(self) -> CameraFrame:
+        image = np.zeros(
+            (self.height, self.width, 3),
+            dtype=np.uint8,
+        )
+
         return CameraFrame(
             source_id=self.source_id,
             width=self.width,
             height=self.height,
+            image=image,
         )
