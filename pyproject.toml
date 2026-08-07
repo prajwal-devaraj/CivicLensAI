@@ -4,6 +4,12 @@ version = "0.1.0"
 description = "First-person multimodal and embodied intelligence platform."
 requires-python = ">=3.11"
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
