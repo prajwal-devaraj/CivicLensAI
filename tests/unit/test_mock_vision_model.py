@@ -1,5 +1,6 @@
 import numpy as np
 from civiclens_perception.mock_vision_model import MockVisionModel
+from civiclens_perception.prediction import VisionPrediction
 
 
 def test_mock_vision_model_returns_prediction():
@@ -7,6 +8,6 @@ def test_mock_vision_model_returns_prediction():
 
     prediction = MockVisionModel().infer(image)
 
-    assert prediction["label"] == "synthetic-scene"
-    assert prediction["confidence"] == 1.0
-    assert prediction["shape"] == (640, 640, 3)
+    assert isinstance(prediction, VisionPrediction)
+    assert prediction.label == "synthetic-scene"
+    assert prediction.confidence == 1.0

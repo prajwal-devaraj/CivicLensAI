@@ -1,12 +1,13 @@
 import numpy as np
 
+from .prediction import VisionPrediction
+
 
 class MockVisionModel:
     """Simple vision model used for development and tests."""
 
-    def infer(self, image: np.ndarray) -> dict[str, object]:
-        return {
-            "label": "synthetic-scene",
-            "confidence": 1.0,
-            "shape": image.shape,
-        }
+    def infer(self, image: np.ndarray) -> VisionPrediction:
+        return VisionPrediction(
+            label="synthetic-scene",
+            confidence=1.0,
+        )
